@@ -12,10 +12,18 @@
             <h1>Login Form</h1>
             <div class ="input_dataconainer">
                 <label for ="userName">Username:</label>
-                <input type ="text" id ="userName" name="Username" placeholder ="User Name:" required>
+                <input type ="text" id ="userName" name="Username" 
+                placeholder ="User Name:" 
+                required
+                minlength="2"
+                maxlength="50"
+                title="usename must contain only lrtters, numbers or underscores">
 
                 <label for ="password">password:</label>
-                <input type ="password" id ="password" name="password" placeholder="password" required>
+                <input type ="password" id ="password" name="password"
+                 placeholder="password" required
+                 minlength="8"
+                 title="Password must be at least 8 characters long">
 
                 <button type =Submit class="btn">Login</button>
                 <p class ="msg"> 
@@ -24,5 +32,7 @@
                 </p>
             </div>
         </form>
+
+        <script src="validateScript.js"></script>
     </body>
 </html>

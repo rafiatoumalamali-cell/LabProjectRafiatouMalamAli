@@ -13,19 +13,30 @@
                 <h1>Sign Up</h1>
 
                 <label for="firstName">FirstName</label><br>
-                <input type ="text" id="firstName" name="firstName" placeholder="First Name" required><br>
+                <input type ="text" id="firstName" name="firstName" placeholder="First Name" 
+                required  pattern="[A-Za-z\s]+$" title="only letters are allowed"><br>
 
                 <label for="lastName">LastName</label><br>
-                <input type ="text" id="lastName" name="lastName" placeholder="Last Name" required><br>
+                <input type ="text" id="lastName" name="lastName"
+                 placeholder="Last Name" required pattern="[A-Za-z\s]+$" title="only letters are allowed"><br>
 
                 <label for="email">Email</label><br>
-                <input type ="text" id="email" name="email" placeholder="Email" required><br>
+                <input type ="email" id="email" name="email" placeholder="Email" required><br>
 
                 <label for="userName">UserName</label><br>
-                <input type ="text" id="userName" name="userName" placeholder="UserName" required><br>
+                <input type ="text" id="userName" name="userName"
+                 placeholder="UserName" required
+                 minlength="5" maxlength="30"
+                 title="Uaername must be 4-5 characters long and include letters, numbers, and underscores"><br>
 
                 <label for="password">Password</label><br>
-                <input type ="text" id="password" name="password" placeholder="password" required>
+                <input type ="password" id="password" name="password"
+                minlength="8" 
+                title="Password must be at least 8 characters long"
+                placeholder="password" required><br>
+
+                <label for="confirmpassword">Password</label><br>
+                <input type ="password" id="confirmpassword" name="confirmpassword" placeholder="Confirm password" required><br>
 
                 <label for="role">Role:</label>
                 <select id="role" name="role" required>
@@ -33,7 +44,7 @@
                 <option value="faculty">Faculty</option>
                 <option value ="faculty_intern">Faculty Intern</option>
                 <option value ="student">Student</option>
-                </select>
+                </select><br><br>
 
                 <button type="submit">Sign Up</button>
 
@@ -44,6 +55,8 @@
 
             </div>
         </form>
+
+        <script src="validateSignup.js"></script>
 
         
 
