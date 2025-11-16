@@ -8,7 +8,7 @@
     </head>
 
     <body>
-        <form  id= "loginForm" action="login.php" method= "post">
+        <form  id= "loginForm" onsubmit="return validateLogin()">
             <h1>Login Form</h1>
             <div class ="input_datacontainer">
                 <label for ="userName">Username:</label>
@@ -17,7 +17,7 @@
                 required
                 minlength="2"
                 maxlength="50"
-                title="usename must contain only letters, numbers or underscores">
+                title="usename must contain only lrtters, numbers or underscores">
 
                 <label for ="password">password:</label>
                 <input type ="password" id ="password" name="password"
