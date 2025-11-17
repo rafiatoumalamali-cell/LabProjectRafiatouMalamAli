@@ -1,122 +1,218 @@
-body{
+/* General Styles */
+body {
     background-color: pink;
-    font-size: 30px;
+    font-size: 16px;
     font-family: 'Times New Roman', Times, serif;
-    border : 20px solid black;
-    width: 1230px;
-    height: 2100px;
-    border-radius: 0px;
-    padding:0px;
-    animation:both 5s ease-in-out infinite;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
 }
 
-header{background-color:maroon;
-    color: white;
-    padding:15px 0;
-
-}
-
-nav{
-    display: flex;
-    background-color:DodgerBlue;
-    text-align: center;
-    padding: 10px;
-    justify-content:space-around;
+/* Login and Signup Forms */
+.input_datacontainer {
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: white;
     border-radius: 10px;
-    flex-wrap:wrap;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
-nav a{color:white;
-    margin:10px;
-    font-weight:bold;
+.input_datacontainer h1 {
+    text-align: center;
+    color: maroon;
+    margin-bottom: 30px;
+}
+
+.input_datacontainer label {
+    display: block;
+    margin: 15px 0 5px 0;
+    font-weight: bold;
+    color: #333;
+}
+
+.input_datacontainer input,
+.input_datacontainer select {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+.input_datacontainer input:focus,
+.input_datacontainer select:focus {
+    border-color: DodgerBlue;
+    outline: none;
+}
+
+.input_datacontainer .btn {
+    width: 100%;
+    padding: 12px;
+    background-color: DodgerBlue;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    margin: 20px 0;
+}
+
+.input_datacontainer .btn:hover {
+    background-color: #1E90FF;
+}
+
+.input_datacontainer a {
+    display: block;
+    text-align: center;
+    margin: 10px 0;
+    color: DodgerBlue;
+    text-decoration: none;
+}
+
+.input_datacontainer a:hover {
+    text-decoration: underline;
+    color: green;
+}
+
+.msg, .message {
+    text-align: center;
+    margin-top: 20px;
+    color: #666;
+}
+
+/* Dashboard Styles */
+header {
+    background-color: maroon;
+    color: white;
+    padding: 15px 0;
+}
+
+nav {
+    display: flex;
+    background-color: DodgerBlue;
+    text-align: center;
+    padding: 15px;
+    justify-content: space-around;
+    border-radius: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+nav h1 {
+    font-size: 24px;
+    color: white;
+    letter-spacing: 1px;
+    margin: 0;
+}
+
+nav a {
+    color: white;
+    margin: 10px;
+    font-weight: bold;
+    text-decoration: none;
     transition: color 0.2s;
-
 }
 
-nav a:hover{
-    text-decoration:underline;
-    color:green;
+nav a:hover {
+    text-decoration: underline;
+    color: green;
 }
 
-
-
-nav h1{
-    font-size:24px;
-    text-align:center;
-    color:black;
-    letter-spacing:1px;
+main {
+    padding: 25px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-main{padding:25px;
-
+section {
+    background-color: DodgerBlue;
+    text-align: center;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 15px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 139, 0.3);
 }
 
-section{
-    background-color:DodgerBlue;
-    text-align:center;
-    padding:20px;
-    width:1180px;
-    margin:5px;
-    border-radius:15px;
-    margin-bottom:20px;
-    box-shadow: 2px 2px 5px MediumBlue;
-
+section h3 {
+    color: white;
+    text-transform: capitalize;
+    margin-top: 0;
 }
 
-section h3{color:maroon;
-    text-transform:capitalize;
-
-}
-
-a{color:white;
-
-}
-
-a:hover{color:green;
-    text-decoration:underline;
-    font-weight:bold;
-
-}
-
-.course_card , .sessions_card, .reports_card, .auditors_card{
-    border-radius:10px;
-    background-color:#f0f4fa;
-    padding:10px;
-    margin-top:8px;
+/* Card Styles */
+.course_card,
+.sessions_card,
+.reports_card,
+.auditors_card,
+.Grades_Reports-card {
+    border-radius: 10px;
+    background-color: #f0f4fa;
+    padding: 20px;
+    margin: 10px 0;
     border-left: 6px solid brown;
+    text-align: left;
 }
 
-.auditors_card h4, .course_card h4, .reports_card h4, .sessions_card h4{
-    color:#f0f4fa;
-    margin-bottom:6px
+.course_card h4,
+.sessions_card h4,
+.reports_card h4,
+.auditors_card h4,
+.Grades_Reports-card h4 {
+    color: maroon;
+    margin-bottom: 10px;
 }
 
-button{
-    background-color:DodgerBlue;
-    border:5px;
+/* Button Styles */
+button {
+    background-color: DodgerBlue;
+    border: none;
     cursor: pointer;
     color: white;
-    padding:10px 50px;
-    border-radius:4px;
-    transition: background-color 0.02s;
-    
+    padding: 10px 20px;
+    border-radius: 4px;
+    margin: 5px;
+    transition: background-color 0.3s;
 }
 
-button:hover{
-    background-color:yellowgreen;
-    font-weight:bold;
-    color:#000f;
-    
-    
+button:hover {
+    background-color: yellowgreen;
+    font-weight: bold;
+    color: black;
 }
 
-footer{
-    color: darkBlue;
-    width:100%;
-    padding:12px;
-    text-align:center;
+/* Footer */
+footer {
+    background-color: maroon;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    margin-top: 40px;
 }
 
-h1{
-    text-align:center;
+footer p {
+    margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+    }
+    
+    nav a {
+        margin: 5px;
+    }
+    
+    .input_datacontainer {
+        margin: 20px;
+        padding: 20px;
+    }
+    
+    section {
+        margin: 10px;
+        padding: 15px;
+    }
 }

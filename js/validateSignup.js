@@ -14,52 +14,47 @@ function validateSignup(event){
 
     if(firstName==="" || lastName===""){
         alert("First Name and Last Name cannot be empty.");
-        return;
+        return false;
     }
     if(!emailPattern.test(email)){
         alert("you entered an invalid email address.");
-        return;
+        return false;
     }
     if(!usernamePattern.test(username)){
         alert("Invalid username. It must be 4-30 characters long and can only contain letters, numbers, or underscores.");
-        return;
+        return false;
     }
 
     if(password.length<8){
         alert("Invalid password. It must be at least 8 characters long.");
-        return;
+        return false;
     }
 
     if(role===""){
         alert("Please select your role.");
-        return;
+        return false;
     }
     if(password !== confirmPassword){
         alert("Passwords do not match.");
-        return;
+        return false;
     }
 
     let strongPasswordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
     if (!strongPasswordPattern.test(password)) {
         alert("Weak password. please use a mix of uppercase and lowercase letters, numbers, and special characters for a stronger password.");
-        return;
+        return false;
     }
 
     alert("Signup successful!");
     
-
-    
-
-     if(role ==="student"){
-        window.location.href="Student_Dashboard.html";
-        
+    if(role ==="student"){
+        window.location.href="Student_Dashboard.php";
     }else if(role ==="faculty"){
-        window.location.href="Faculty_Dashboard.html";
+        window.location.href="Faculty_Dashboard.php";
     }else if(role ==="faculty_intern"){
-        window.location.href="FI_Dashboard.html";
-
+        window.location.href="FI_Dashboard.php";
     }else{
-        window.location.href="index.html";
+        window.location.href="index.php";
     }
 
     return false;
