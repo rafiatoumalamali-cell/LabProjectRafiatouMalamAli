@@ -1,6 +1,6 @@
 /* General Styles */
 body {
-    background-color: pink;
+    
     font-size: 16px;
     font-family: 'Times New Roman', Times, serif;
     margin: 0;
@@ -10,12 +10,18 @@ body {
 
 /* Login and Signup Forms */
 .input_datacontainer {
-    max-width: 500px;
+    background-image: url('../image/loginImage.png');
+    background-size: contain; /* or 'cover' depending on what looks better */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: rgba(255, 255, 255, 0.95); /* Keep some white background for readability */
+    width: 100%;
+    height: 100%;
     margin: 50px auto;
     padding: 30px;
-    background-color: white;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    min-height: 400px; /* Give it some height to show the background */
 }
 
 .input_datacontainer h1 {
@@ -81,6 +87,19 @@ body {
     text-align: center;
     margin-top: 20px;
     color: #666;
+}
+
+.input_datacontainer {
+    background-image: url('../image/loginImage.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white overlay */
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
 /* Dashboard Styles */

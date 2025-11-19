@@ -10,7 +10,7 @@ function validateSignup(event){
     
 
     let emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    let usernamePattern=/^[a-zA-Z0-9_]{4,30}$/;
+    let usernamePattern = /^[a-zA-Z0-9_.]{4,30}$/;
 
     if(firstName==="" || lastName===""){
         alert("First Name and Last Name cannot be empty.");
@@ -21,7 +21,7 @@ function validateSignup(event){
         return false;
     }
     if(!usernamePattern.test(username)){
-        alert("Invalid username. It must be 4-30 characters long and can only contain letters, numbers, or underscores.");
+        alert("Invalid username. It must be 4-30 characters long and can only contain letters, numbers, underscores, or dots.");
         return false;
     }
 

@@ -1,6 +1,6 @@
 <?php
-session_start();
-// Add authentication check here
+require_once 'config/auth_check.php';
+checkRole(['faculty_intern']);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -8,7 +8,8 @@ session_start();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Faculty Intern Dashboard</title>
-    <link rel="stylesheet" href="Style.css">
+    <link rel="stylesheet" href="CSS/Style.css">
+    <script src="js/logout.js"></script>
 </head>
 <body>
     <header>
@@ -18,7 +19,7 @@ session_start();
             <a href="#sessions">Sessions</a>
             <a href="#reports">Reports</a>
             <a href="#auditors">Auditors</a>
-            <a href="index.php">Logout</a>
+            <a href="logout.php" class="logout-btn">Logout</a>
         </nav>
     </header>
 
