@@ -15,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $db = $database->getConnection();
 
         // Check if user exists
-        $query = "SELECT user_id, username, password_hash, role FROM users WHERE username = :username";
+        $query = "SELECT user_id, username, password_hash, role, status FROM users WHERE username = :username";
         $stmt = $db->prepare($query);
         $stmt->bindParam(':username', $username);
         $stmt->execute();
@@ -37,38 +37,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $login_response['username'] = $user['username'];
                 $login_response['user_id'] = $user['user_id'];
                 $login_response['role'] = $user['role'];
+                
+                // REDIRECT TO DASHBOARD
+                switch ($_SESSION['role']) {
+                    case 'student':
+                        header('Location: Student_Dashboard.php');
+                        exit;
+                    case 'faculty':
+                        header('Location: Faculty_Dashboard.php');
+                        exit;
+                    case 'faculty_intern':
+                        header('Location: FI_Dashboard.php');
+                        exit;
+                    default:
+                        header('Location: index.php');
+                        exit;
+                }
             } else {
                 $login_response['message'] = 'Invalid password.';
             }
         } else {
             $login_response['message'] = 'User not found.';
         }
-    }
-    
-    // If it's an AJAX request, return JSON
-    if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
-        header('Content-Type: application/json');
-        echo json_encode($login_response);
-        exit;
-    }
-    
-    // If regular form submission and login successful, redirect
-    if ($login_response['success']) {
-        // Redirect based on role
-        switch ($_SESSION['role']) {
-            case 'student':
-                header('Location: Student_Dashboard.php');
-                break;
-            case 'faculty':
-                header('Location: Faculty_Dashboard.php');
-                break;
-            case 'faculty_intern':
-                header('Location: FI_Dashboard.php');
-                break;
-            default:
-                header('Location: index.php');
-        }
-        exit;
     }
 }
 ?>
@@ -82,20 +72,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link rel="stylesheet" href="CSS/Style.css">
 </head>
 <body>
-    
-    
     <form id="loginForm" method="POST" action="index.php">
         <h1>Login Form</h1>
         <div class="input_datacontainer">
             
             <?php if (!empty($login_response['message']) && !$login_response['success']): ?>
                 <div class="error-message" style="color: red; padding: 10px; background: #ffe6e6; border-radius: 5px;">
-                    <?php echo $login_response['message']; ?>
-                </div>
-            <?php endif; ?>
-
-            <?php if (!empty($login_response['message']) && $login_response['success']): ?>
-                <div class="success-message" style="color: green; padding: 10px; background: #e6ffe6; border-radius: 5px;">
                     <?php echo $login_response['message']; ?>
                 </div>
             <?php endif; ?>
