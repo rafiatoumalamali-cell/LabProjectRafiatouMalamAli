@@ -84,7 +84,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body>
     
     
-    <form id="loginForm" method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+    <form id="loginForm" method="POST" action="index.php">
         <h1>Login Form</h1>
         <div class="input_datacontainer">
             
