@@ -99,9 +99,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <button type="submit" class="btn">Login</button><br>
 
             <a href="Signup.php">Go to Signup Page</a><br>
-            <a href="FI_Dashboard.php">Faculty Intern Dashboard</a><br>
-            <a href="Student_Dashboard.php">Student Dashboard</a><br>
-            <a href="Faculty_Dashboard.php">Faculty Dashboard</a><br>
+            
 
             <p class="msg"> 
                 Don't have an account?
