@@ -97,10 +97,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
              title="Password must be at least 8 characters long">
 
             <button type="submit" class="btn">Login</button><br>
-
-            <a href="Signup.php">Go to Signup Page</a><br>
-            
-
             <p class="msg"> 
                 Don't have an account?
                 <a href="Signup.php">register here</a>

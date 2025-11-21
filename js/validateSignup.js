@@ -45,17 +45,10 @@ function validateSignup(event){
         return false;
     }
 
-    alert("Signup successful!");
+    // If all validation passes, allow the form to submit to PHP
+    alert("Signup successful! Please login with your new credentials.");
     
-    if(role ==="student"){
-        window.location.href="Student_Dashboard.php";
-    }else if(role ==="faculty"){
-        window.location.href="Faculty_Dashboard.php";
-    }else if(role ==="faculty_intern"){
-        window.location.href="FI_Dashboard.php";
-    }else{
-        window.location.href="index.php";
-    }
-
-    return false;
+    // Let the form submit naturally to your Signup.php file
+    // The PHP file will handle the database insertion and then redirect to login
+    return true;
 }
