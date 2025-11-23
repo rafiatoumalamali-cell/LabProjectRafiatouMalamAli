@@ -30,8 +30,8 @@ checkRole(['faculty']);
             <div class="course_management-box">
                 <article class="course_card">
                     <h4>Manage Your Courses</h4>
-                    <button>Create New Course</button>
-                    <button>View Existing Courses</button>
+                    <button id="createCourseBtn">Create New Course</button>
+                    <button id="viewCoursesBtn">View Existing Courses</button>
                 </article>
             </div>
         </section>
@@ -73,7 +73,52 @@ checkRole(['faculty']);
         </section>
     </main>
 
-    <footer>
+   
+
+    <!-- Create Course Modal -->
+    <div id="createCourseModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Create New Course</h2>
+            <form id="createCourseForm">
+                <div class="form-group">
+                    <label for="courseCode">Course Code:</label>
+                    <input type="text" id="courseCode" name="courseCode" required 
+                           placeholder="e.g., CS101">
+                </div>
+                <div class="form-group">
+                    <label for="courseName">Course Name:</label>
+                    <input type="text" id="courseName" name="courseName" required 
+                           placeholder="e.g., Introduction to Programming">
+                </div>
+                <div class="form-group">
+                    <label for="description">Description:</label>
+                    <textarea id="description" name="description" 
+                             placeholder="Course description..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="creditHours">Credit Hours:</label>
+                    <input type="number" id="creditHours" name="creditHours" 
+                           min="1" max="6" value="3">
+                </div>
+                <div class="form-group">
+                    <label for="scheduleDays">Schedule Days:</label>
+                    <input type="text" id="scheduleDays" name="scheduleDays" 
+                           placeholder="e.g., Mon, Wed, Fri">
+                </div>
+                <div class="form-group">
+                     <label for="scheduleTime">Schedule Time:</label>
+                    <input type="time" id="scheduleTime" name="scheduleTime" required>
+                </div>
+                <button type="submit" class="btn-primary">Create Course</button>
+            </form>
+            <div id="courseMessage" style="margin-top: 15px;"></div>
+        </div>
+    </div>
+
+    <script src="js/faculty_courses.js"></script>
+
+     <footer>
         <p>&copy; 2025 Faculty Dashboard</p>
     </footer>
 </body>
