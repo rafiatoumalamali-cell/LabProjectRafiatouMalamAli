@@ -116,6 +116,16 @@ checkRole(['faculty']);
         </div>
     </div>
 
+            <!-- Existing Courses Section -->
+        <section id="existing-courses">
+            <h3>Your Courses</h3>
+            <div id="coursesList" class="courses-list">
+                <!-- Courses will be loaded here via AJAX -->
+                <p>Loading your courses...</p>
+            </div>
+        </section>
+
+
     <script src="js/faculty_courses.js"></script>
 
      <footer>

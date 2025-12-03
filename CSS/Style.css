@@ -444,3 +444,130 @@ footer p {
 @keyframes spin {
     to { transform: rotate(360deg); }
 }
+
+/* Existing Courses Styles */
+.courses-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.course-card {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.course-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #ff6b6b, #4ecdc4, #45b7d1);
+}
+
+.course-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+}
+
+.course-header {
+    display: flex;
+    justify-content: space-between;  /* ← Fix this line */
+    align-items: flex-start;
+    margin-bottom: 15px;
+}
+
+.course-code {
+    font-size: 1.1em;
+    font-weight: bold;
+    background: rgba(255,255,255,0.2);
+    padding: 4px 12px;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+}
+
+.course-name {
+    font-size: 1.3em;
+    font-weight: 600;
+    margin-bottom: 10px;
+    line-height: 1.3;
+}
+
+.course-description {
+    font-size: 0.9em;
+    opacity: 0.9;
+    margin-bottom: 15px;
+    line-height: 1.4;
+}
+
+.course-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    font-size: 0.85em;
+    opacity: 0.8;
+}
+
+.course-detail-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.course-actions {
+    margin-top: 15px;
+    display: flex;
+    gap: 10px;
+}
+
+.btn-small {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.8em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    flex: 1;
+}
+
+.btn-view {
+    background: rgba(255,255,255,0.2);
+    color: white;
+    backdrop-filter: blur(10px);
+}
+
+.btn-view:hover {
+    background: rgba(255,255,255,0.3);
+}
+
+.btn-manage {
+    background: #ff6b6b;
+    color: white;
+}
+
+.btn-manage:hover {
+    background: #ff5252;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 40px;
+    background: #f8f9fa;
+    border-radius: 12px;
+    color: #6c757d;
+}
+
+.empty-state h4 {
+    color: #495057;
+    margin-bottom: 10px;
+}

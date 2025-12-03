@@ -87,3 +87,87 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+
+// Load faculty courses
+function loadFacultyCourses() {
+    const coursesList = document.getElementById('coursesList');
+    if (!coursesList) return;
+
+    coursesList.innerHTML = '<p>Loading your courses...</p>';
+
+    fetch('./faculty/get_courses.php')
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                displayCourses(data.courses);
+            } else {
+                coursesList.innerHTML = '<p class="empty-state">Error loading courses</p>';
+            }
+        })
+        .catch(error => {
+            console.error('Error loading courses:', error);
+            coursesList.innerHTML = '<p class="empty-state">Error loading courses</p>';
+        });
+}
+
+// Display courses in the list
+function displayCourses(courses) {
+    const coursesList = document.getElementById('coursesList');
+    
+    if (courses.length === 0) {
+        coursesList.innerHTML = `
+            <div class="empty-state">
+                <h4>No Courses Yet</h4>
+                <p>You haven't created any courses yet. Click "Create New Course" to get started!</p>
+            </div>
+        `;
+        return;
+    }
+
+    coursesList.innerHTML = courses.map(course => `
+        <div class="course-card">
+            <div class="course-header">
+                <span class="course-code">${course.course_code}</span>
+            </div>
+            <h4 class="course-name">${course.course_name}</h4>
+            <p class="course-description">${course.description || 'No description provided.'}</p>
+            <div class="course-details">
+                <div class="course-detail-item">
+                    <strong>Credits:</strong> ${course.credit_hours}
+                </div>
+                <div class="course-detail-item">
+                    <strong>Schedule:</strong> ${course.schedule_days || 'Not set'} ${course.schedule_time || ''}
+                </div>
+                <div class="course-detail-item">
+                    <strong>Students:</strong> ${course.enrolled_students || 0}
+                </div>
+                <div class="course-detail-item">
+                    <strong>Pending:</strong> ${course.pending_requests || 0}
+                </div>
+            </div>
+            <div class="course-actions">
+                <button class="btn-small btn-view" onclick="viewCourse(${course.course_id})">View Details</button>
+                <button class="btn-small btn-manage" onclick="manageCourse(${course.course_id})">Manage</button>
+            </div>
+        </div>
+    `).join('');
+}
+
+// Placeholder functions for course actions
+function viewCourse(courseId) {
+    alert('View course details for ID: ' + courseId);
+    // We'll implement this later
+}
+
+function manageCourse(courseId) {
+    alert('Manage course for ID: ' + courseId);
+    // We'll implement this later
+}
+
+// Load courses when page loads
+document.addEventListener('DOMContentLoaded', function() {
+    loadFacultyCourses();
+    
+    // ... your existing modal code ...
+});
